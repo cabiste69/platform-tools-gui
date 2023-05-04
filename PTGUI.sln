@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{54D3C985-6F5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTGUI", "src\PTGUI\PTGUI.csproj", "{E5863A59-FE52-4F27-911C-9B8921A81FEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adb", "src\Adb\Adb.csproj", "{B814F061-F645-4295-8A13-09F4E77806D3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlatformTools", "src\PlatformTools\PlatformTools.csproj", "{B814F061-F645-4295-8A13-09F4E77806D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

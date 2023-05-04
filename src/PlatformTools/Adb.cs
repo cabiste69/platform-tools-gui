@@ -8,7 +8,7 @@ namespace PlatformTools
         {
             StartInfo = new ProcessStartInfo
             {
-                FileName = "/home/cabiste/Documents/platform-tools/adb",
+                FileName = AppDomain.CurrentDomain.BaseDirectory + "adb",
                 RedirectStandardOutput = true,
                 UseShellExecute = false,
                 CreateNoWindow = true
