@@ -1,18 +1,14 @@
-using System.Globalization;
-using System;
-using System.Collections.Generic;
-using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml.Templates;
-using PTGUI;
+using PTGUI.Interfaces;
 
-namespace PTG;
+namespace PTGUI.View.ConfirmationPopup;
 
-public class PopupWindow : BaseWindow
+public class PopupWindow : Window, IView
 {
-    private IEnumerable<string> _packages { get; set; }
     public bool isConfirmed { get; set; } = false;
+    private IEnumerable<string> _packages { get; set; }
+
     public PopupWindow(IEnumerable<string> packages)
     {
         _packages = packages;
@@ -22,12 +18,12 @@ public class PopupWindow : BaseWindow
         InitializeUi();
     }
 
-    private void InitializeUi()
+    public void InitializeUi()
     {
         StackPanel sp = new();
         this.Content = sp;
 
-        var packagesList = new ItemsRepeater()
+        ItemsRepeater packagesList = new()
         {
             Name = "packagesList",
             MaxHeight = 600,
@@ -35,15 +31,14 @@ public class PopupWindow : BaseWindow
         };
         sp.Children.Add(packagesList);
 
-        var buttonYes = new Button()
+        Button buttonYes = new()
         {
             Content = "uninstall",
         };
         buttonYes.Click += ClickedYes;
         sp.Children.Add(buttonYes);
 
-
-        var buttonNo = new Button()
+        Button buttonNo = new()
         {
             Content = "cancel"
         };
@@ -51,11 +46,11 @@ public class PopupWindow : BaseWindow
         sp.Children.Add(buttonNo);
     }
 
-    private void CLickedNo(object? sender, RoutedEventArgs e) => this.Close();
-
     private void ClickedYes(object? sender, RoutedEventArgs e)
     {
         isConfirmed = true;
         this.Close();
     }
+
+    private void CLickedNo(object? sender, RoutedEventArgs e) => this.Close();
 }

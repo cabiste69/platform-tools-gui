@@ -1,6 +1,4 @@
 ﻿using Avalonia;
-using Avalonia.Controls;
-using System;
 
 namespace PTGUI;
 
@@ -18,5 +16,4 @@ class Program
         => AppBuilder.Configure<App>()
             .UsePlatformDetect()
             .LogToTrace();
-
 }

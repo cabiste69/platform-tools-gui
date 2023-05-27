@@ -1,15 +1,13 @@
-using System.Collections.Generic;
 using System.Reflection;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.VisualTree;
 
-namespace PTGUI;
-public class BaseWindow : Window
+namespace PTGUI.Extensions;
+public static class PanelExtension
 {
-    public T? FindControl<T>(IEnumerable<IVisual> parent, string name) where T : class
+    public static T? FindControl<T>(this Panel parent, string name) where T : class
     {
-        foreach (IVisual? child in parent)
+        foreach (var child in parent.Children)
         {
             if (child.GetType() == typeof(T) && ((StyledElement)child).Name == name)
                 return (T)child;
@@ -17,9 +15,9 @@ public class BaseWindow : Window
             // https://stackoverflow.com/a/10718451/12429279
             if (typeof(Panel).GetTypeInfo().IsAssignableFrom(child.GetType()))
             {
-                var x = FindControl<T>(((Panel)child).GetVisualChildren(), name);
-                if (x is not null)
-                    return x;
+                var grandChild = FindControl<T>(((Panel)child), name);
+                if (grandChild is not null)
+                    return grandChild;
             }
         }
         return null;
