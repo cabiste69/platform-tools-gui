@@ -1,0 +1,18 @@
+<Grid xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="PTGUI.View.Main.MainView" ColumnDefinitions="1*, 5*"
+Margin="10"
+ShowGridLines="true">
+    <StackPanel Name="sidePanel" Grid.Column="0">
+        <TextBlock FontSize="18"> Device List </TextBlock>
+        <ComboBox Name="devicesList" PlaceholderText="select device" Height="70"/>
+        <TextBlock FontSize="18"> Device Info</TextBlock>
+        <Border BorderBrush="#d6ae54" BorderThickness="2">
+            <Panel Name="deviceInfoPanel" MinWidth="150" MinHeight="150"/>
+        </Border>
+    </StackPanel>
+    <Grid Name="mainContentGrid" RowDefinitions="10*, 1*" Grid.Column="1">
+        <StackPanel Name="mainContentSp" Grid.Column="0">
+            <ListBox Name="packagesList" SelectionMode="Multiple" MaxHeight="600"/>
+            <Button Name="uninstallButton">uninstall</Button>
+        </StackPanel>
+    </Grid>
+</Grid>
