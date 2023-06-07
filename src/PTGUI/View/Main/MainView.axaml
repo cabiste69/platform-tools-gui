@@ -1,14 +1,21 @@
-<Grid xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="PTGUI.View.Main.MainView" ColumnDefinitions="1*, 5*"
-Margin="10"
-ShowGridLines="true">
-    <StackPanel Name="sidePanel" Grid.Column="0">
+<Grid xmlns="https://github.com/avaloniaui" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" x:Class="PTGUI.View.Main.MainView" ColumnDefinitions="220, 5*" Margin="10" ShowGridLines="true"><!-- Left side bar -->
+    <StackPanel Name="sidePanel" Grid.Column="0" Margin="0 0 5 0">
         <TextBlock FontSize="18"> Device List </TextBlock>
-        <ComboBox Name="devicesList" PlaceholderText="select device" Height="70"/>
+        <ComboBox Name="devicesList" PlaceholderText="select device" Height="40" Margin="0 10"/>
         <TextBlock FontSize="18"> Device Info</TextBlock>
-        <Border BorderBrush="#d6ae54" BorderThickness="2">
+        <Border BorderBrush="#d6ae54" BorderThickness="2" Margin="0 10">
             <Panel Name="deviceInfoPanel" MinWidth="150" MinHeight="150"/>
         </Border>
-    </StackPanel>
+        <StackPanel Name="optionsPanel" MinWidth="150" MinHeight="150">
+            <TextBlock FontSize="14">Type</TextBlock>
+            <CheckBox Tag="sys">show system packages</CheckBox>
+            <CheckBox Tag="3rd" IsChecked="True">show 3rd party packages</CheckBox>
+            <TextBlock FontSize="14">Status</TextBlock>
+            <CheckBox Tag="enabled" IsChecked="True">show enabled</CheckBox>
+            <CheckBox Tag="disabled" >show disabled</CheckBox>
+            <CheckBox Tag="uninstalled" >show uninstalled packages</CheckBox>
+        </StackPanel>
+    </StackPanel><!-- The list of packages -->
     <Grid Name="mainContentGrid" RowDefinitions="10*, 1*" Grid.Column="1">
         <StackPanel Name="mainContentSp" Grid.Column="0">
             <ListBox Name="packagesList" SelectionMode="Multiple" MaxHeight="600"/>

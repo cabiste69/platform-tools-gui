@@ -35,6 +35,5 @@ public partial class MainView : Grid, IView
     private void WireMainContent()
     {
         uninstallButton.Click += _ctrl.uninstallButton_Clicked;
-        
     }
 }

@@ -4,16 +4,14 @@
     <Application.Styles>
         <FluentTheme Mode="Dark"/>
 
-        <Style Selector="Panel > TextBlock">
+        <!-- <Style Selector="Panel > TextBlock">
             <Setter Property="FontSize" Value="15"/>
             <Setter Property="LineHeight" Value="20"/>
-            <!-- <Setter Property="FontWeight" Value="Bold"/> -->
         </Style>
 
         <Style Selector="Border">
             <Setter Property="Margin" Value="0, 15"/>
-            <!-- d6ae54 -->
-        </Style>
+        </Style> -->
 
     </Application.Styles>
 </Application>
