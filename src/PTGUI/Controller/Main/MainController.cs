@@ -13,7 +13,6 @@ public class MainController
     public MainController(MainView view)
     {
         _view = view as IVisual;
-        LoadConnectedDevices(null, null);
     }
 
     public void SelectedDeviceChanged(object? sender, SelectionChangedEventArgs e)
@@ -23,8 +22,10 @@ public class MainController
 
         SetDeviceInfo((string)e.AddedItems[0]!);
 
-        var packagesList = _view.FindControl<ListBox>("packagesList");
-        packagesList!.Items = PlatformTools.Adb.Get3rdApps((string)e.AddedItems[0]!);
+        var packagesList = _view.FindControl<ListBox>(name: "packagesList");
+
+        var packages = PlatformTools.Adb.GetPackages((string)e.AddedItems[0]!);
+        packagesList!.Items = packages;
     }
 
     public void LoadConnectedDevices(object? sender, RoutedEventArgs? e)
